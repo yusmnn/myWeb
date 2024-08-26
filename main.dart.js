@@ -57517,7 +57517,7 @@ return A.nS(A.kI(new A.bK(B.j_,new A.bK(B.j1,A.e0(A.Bs(A.a([l,B.W,o,B.W,m,B.W,A.
 A.RH.prototype={
 $0(){var s=window
 s.toString
-B.aB.hy(s,"https://s.id/cv-ats-yusmnn","Yusman")},
+B.aB.hy(s,"https://s.id/cv-yusmnn","Yusman")},
 $S:0}
 A.RI.prototype={
 $0(){var s=window
