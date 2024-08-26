@@ -57553,7 +57553,7 @@ return A.nS(A.kI(new A.bK(B.j_,new A.bK(B.j1,A.e0(A.Bs(A.a([A.eL(A.a([r,B.W,q,B.
 A.a1p.prototype={
 $0(){var s=window
 s.toString
-B.aB.hy(s,"https://s.id/cv-ats-yusmnn","Yusman")},
+B.aB.hy(s,"https://s.id/cv-yusmnn","Yusman")},
 $S:0}
 A.CF.prototype={
 R(a){var s=null,r=t.E
