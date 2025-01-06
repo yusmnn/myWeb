@@ -1,60 +1,666 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="scroll-smooth">
   <head>
-    <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-    <!-- <base href="/" /> -->
-
     <meta charset="UTF-8" />
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Welcome to my personal website where I share my projects, blog posts, and insights on software development, technology, and more. Discover my work and connect with me." />
-
-    <!-- iOS meta tags & icons -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="keywords" content="Yusman, Yusman - Indonesia, flutter, makassar" />
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="ngrok-skip-browser-warning" content="true" />
     <meta name="apple-mobile-web-app-title" content="💙 Yusman - Indonesia" />
-    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
-
-    <!-- Favicon -->
-    <!-- <link rel="icon" type="image/png" href="favicon.png"/> -->
     <link rel="icon" type="image/png" href="https://iili.io/JcIqMep.png" />
+    <title>💙 Yusman - Indonesia</title>
 
-    <title>💙 Yusman</title>
-    <link rel="manifest" href="manifest.json" />
+    
+    <link href="./src/output.css" rel="stylesheet" />
+    <!-- <link href="./src/final.css" rel="stylesheet" /> -->
+    <style>
+      html body {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
 
-    <script>
-      // The value below is injected by flutter build, do not touch.
-      const serviceWorkerVersion = "2124797810";
-    </script>
-    <!-- This script adds the flutter initialization JS code -->
-    <script src="flutter.js" defer></script>
+      .blob {
+        margin: 0;
+      }
+      .blob path {
+        animation:
+          blob 7s linear infinite,
+          rot 53s linear infinite;
+      }
+      @keyframes blob {
+        0% {
+          d: path(
+            "M120,-157.6C152.7,-141.5,174.3,-102.6,194.8,-58.8C215.3,-14.9,234.6,33.8,228.4,80.8C222.2,127.8,190.4,173.1,148.1,184C105.8,195,52.9,171.5,-2.4,174.8C-57.8,178.2,-115.6,208.4,-137.5,190.9C-159.3,173.3,-145.3,108,-153,56.3C-160.7,4.6,-190.2,-33.4,-178.3,-54.2C-166.4,-75.1,-113.2,-78.8,-76.6,-93.6C-40,-108.3,-20,-134.2,11.9,-150.5C43.7,-166.8,87.4,-173.6,120,-157.6Z"
+          );
+        }
+        25% {
+          d: path(
+            "M67.8,-97.1C87.8,-78.8,103.8,-58.9,117.4,-34.1C130.9,-9.4,142,20.2,139.5,50.7C137,81.2,120.8,112.6,95.3,150.1C69.8,187.7,34.9,231.3,3.3,226.8C-28.2,222.2,-56.4,169.3,-91.6,134.9C-126.8,100.5,-169,84.6,-179.6,57.1C-190.2,29.7,-169.3,-9.3,-155.2,-49.7C-141,-90.1,-133.7,-132,-109,-148.8C-84.2,-165.6,-42.1,-157.3,-9.1,-144.8C23.9,-132.2,47.8,-115.5,67.8,-97.1Z"
+          );
+        }
+        50% {
+          d: path(
+            "M137.1,-191.3C172,-163.4,190.6,-115.7,197.2,-70.1C203.8,-24.4,198.5,19.2,178.9,51.5C159.3,83.9,125.5,105,93.3,129.6C61.1,154.1,30.6,182.1,1.1,180.6C-28.4,179.1,-56.8,148.2,-81.2,121.1C-105.6,94.1,-126.1,70.8,-141.6,41.6C-157.2,12.4,-168,-22.9,-153.9,-45C-139.8,-67,-100.7,-76,-70.9,-105.5C-41.1,-135,-20.6,-185,15.3,-206C51.1,-227.1,102.3,-219.1,137.1,-191.3Z"
+          );
+        }
+        75% {
+          d: path(
+            "M123.7,-157.1C162.4,-142.2,197.2,-108.8,202.8,-70.8C208.3,-32.9,184.5,9.7,169,54.2C153.6,98.7,146.4,145.2,119.7,162.7C92.9,180.2,46.4,168.6,-1.9,171.1C-50.2,173.7,-100.3,190.4,-122.2,171.3C-144.1,152.3,-137.7,97.5,-144.1,52.7C-150.6,7.9,-169.9,-26.8,-170.5,-64.8C-171,-102.8,-152.8,-144,-121.3,-161.3C-89.7,-178.5,-44.9,-171.8,-1.2,-170.1C42.5,-168.5,85,-172,123.7,-157.1Z"
+          );
+        }
+        100% {
+          d: path(
+            "M120,-157.6C152.7,-141.5,174.3,-102.6,194.8,-58.8C215.3,-14.9,234.6,33.8,228.4,80.8C222.2,127.8,190.4,173.1,148.1,184C105.8,195,52.9,171.5,-2.4,174.8C-57.8,178.2,-115.6,208.4,-137.5,190.9C-159.3,173.3,-145.3,108,-153,56.3C-160.7,4.6,-190.2,-33.4,-178.3,-54.2C-166.4,-75.1,-113.2,-78.8,-76.6,-93.6C-40,-108.3,-20,-134.2,11.9,-150.5C43.7,-166.8,87.4,-173.6,120,-157.6Z"
+          );
+        }
+      }
+
+      @keyframes rot {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
   </head>
-  <body>
-    <script>
-      window.addEventListener("load", function (ev) {
-        // Download main.dart.js
-        _flutter.loader.loadEntrypoint({
-          serviceWorker: {
-            serviceWorkerVersion: serviceWorkerVersion,
-          },
-          onEntrypointLoaded: function (engineInitializer) {
-            engineInitializer.initializeEngine().then(function (appRunner) {
-              appRunner.runApp();
-            });
-          },
+  <body class="h-64 overflow-y-scroll bg-black">
+
+    <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+      <div class="loader"></div>
+    </div>
+    <!-- Header start -->
+    <header class="absolute top-0 left-0 z-10 flex items-center w-full bg-transparent">
+      <div class="container mx-auto">
+        <div class="relative flex items-center justify-between">
+          <!-- ? logo -->
+          <div class="px-4">
+            <a href="#home" class="block py-6 text-lg font-bold text-primary">yusmnn.me</a>
+          </div>
+
+          <div class="flex items-center px-4">
+            <!-- ? hamburger button -->
+            <button id="hamburger" name="hamburger" type="button" class="absolute block right-4 lg:hidden">
+              <span class="transition duration-300 ease-in-out origin-top-left hamburger-line"></span>
+              <span class="transition duration-300 ease-in-out hamburger-line"></span>
+              <span class="transition duration-300 ease-in-out origin-bottom-left hamburger-line"></span>
+            </button>
+
+            <!--? navbar list -->
+            <nav id="nav-menu" class="bg-card absolute hidden rounded-lg shadow-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg-max-w-full lg:shadow-none lg:rounded-none lg:pr-[400px]">
+              <!-- <ul class="block lg:flex"> -->
+              <ul class="flex flex-col lg:flex-row">
+                <li class="flex-grow group">
+                  <a href="#home" class="block px-4 py-2 text-base text-white group-hover:text-primary whitespace-nowrap">My Self</a>
+                </li>
+                <li class="flex-grow group">
+                  <a href="#about" class="block px-4 py-2 text-base text-white group-hover:text-primary whitespace-nowrap">About</a>
+                </li>
+                <li class="flex-grow group">
+                  <a href="#portfolio" class="block px-4 py-2 text-base text-white group-hover:text-primary whitespace-nowrap">Portfolio</a>
+                </li>
+
+                <li class="flex-grow group">
+                  <li class="flex-grow group">
+                    <a href="#achievments" class="block px-4 py-2 text-base text-white group-hover:text-primary whitespace-nowrap">Achievments</a>
+                  </li>
+                  <a href="#skills" class="block px-4 py-2 text-base text-white group-hover:text-primary whitespace-nowrap">Skills</a>
+                </li>
+                <li class="flex-grow group">
+                  <a href="#contact" class="block px-4 py-2 text-base text-white group-hover:text-primary whitespace-nowrap">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Header End -->
+
+    <!-- Hero section Start-->
+    <section id="home" class="pt-24 pb-20">
+      <div class="container ">
+        <div class="flex flex-wrap">
+          <div class="self-center w-full px-4 lg:w-1/2">
+            <h1 class="text-base font-semibold text-primary lg:text-2xl">Hey 👋, I'm <span class="block mt-4 text-4xl font-bold text-white lg:text-6xl">Yusman</span></h1>
+            <h2 class="mb-5 font-medium leading-relaxed text-secondary text-md">Front-end & Mobile developer based in Makassar, Indonesia.</h2>
+            <p class="mb-10 text-xl font-medium text-white">
+              I specialize in developing mobile and web applications. I am eager to apply my refined skills with a professional environment. A team player who is always looking for opportunities to grow and improve. Feel free to reach out
+              anytime!
+            </p>
+            <a
+              href="mailto:yusmnn@gmail.com?subject=Halo%20Yusman&body=Saya%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut.."
+              class="px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out rounded-full bg-primary hover:shadow-lg hover:opacity-50"
+              >Contact Me</a
+            >
+          </div>
+          <div class="relative mt-10 lg:mt-0 lg:right-0 lg:w-1/2">
+            <img src="assets/profile/profile_3.png" alt="Yusman" class="max-w-full mx-auto" />
+            <span class="absolute block w-[300px] h-[400px] -translate-x-1/2 lg:w-[550px] lg:h-[550px] md:w-[500px] md:h-[500px] sm:w-[500px] sm:h-[500px] -bottom-10 -z-10 left-1/2">
+              <svg class="blob" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(300,300) scale(1.1)">
+                  <path
+                    d="M120,-157.6C152.7,-141.5,174.3,-102.6,194.8,-58.8C215.3,-14.9,234.6,33.8,228.4,80.8C222.2,127.8,190.4,173.1,148.1,184C105.8,195,52.9,171.5,-2.4,174.8C-57.8,178.2,-115.6,208.4,-137.5,190.9C-159.3,173.3,-145.3,108,-153,56.3C-160.7,4.6,-190.2,-33.4,-178.3,-54.2C-166.4,-75.1,-113.2,-78.8,-76.6,-93.6C-40,-108.3,-20,-134.2,11.9,-150.5C43.7,-166.8,87.4,-173.6,120,-157.6Z"
+                    fill="#14b8a6"
+                  />
+                </g>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- About Section Start-->
+    <section id="about" class="pt-20 pb-20">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="w-full px-4 mb-10 lg:w-1/2">
+            <h4 class="mb-3 text-lg font-bold uppercase text-primary">About Me</h4>
+            <h2 class="max-w-md mb-5 text-3xl font-bold text-white lg:text-4xl">Informatic Enginerring</h2>
+            <p class="max-w-xl text-base font-medium text-secondary lg:text-md">
+              I am a recent graduate of Universitas Muslim Indonesia Makassar, holding a Bachelor's degree in Informatics Engineering. My academic journey from July 2020 to August 2024 was dedicated to mastering mobile application
+              development, focusing on technologies like Flutter and Kotlin. Currently, I am learning back end and front end web technologies<br /><br />During my studies, I actively participated in projects and initiatives that honed my
+              technical skills and problem-solving abilities. I am passionate about leveraging technology to create innovative solutions and am eager to bring my knowledge and dedication to a professional environment.
+            </p>
+          </div>
+          <div class="w-full px-4 lg:w-1/2">
+            <h3 class="mb-4 text-2xl font-semibold text-white lg:text-3xl lg:pt-10">Connect with Me!</h3>
+            <p class="mb-6 text-base font-medium text-secondary lg:text-lg">
+              I am always open to discussions, collaborations, or new opportunities in the tech world. Feel free to reach out to me via email, social media, or other professional platforms.
+            </p>
+            <div class="flex items-center">
+              
+
+              <div class="flex items-center justify-center mb-8 text-white">
+                <!--? Gmail -->
+                <a href="mailto:yusmnn@gmail.com" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+                  <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                    />
+                  </svg>
+                  <title>Mail</title>
+                </a>
+    
+                <!--? Github -->
+                <a href="https://github.com/yusmnn" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+                  <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                    <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                    />
+                  </svg>
+                </a>
+    
+                <!--? linkedin -->
+                <a href="https://linkedin.com/in/yusmnn/" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+                  <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                    />
+                  </svg>
+                </a>
+    
+                <!--? X -->
+                <a href="https://x.com/yusmnn" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+                  <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"
+                    />
+                  </svg>
+                </a>
+    
+                <!--? instagram-->
+                <a href="https://instagram.com/yusm.n" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+                  <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M194.4 211.7a53.3 53.3 0 1 0 59.3 88.7 53.3 53.3 0 1 0 -59.3-88.7zm142.3-68.4c-5.2-5.2-11.5-9.3-18.4-12c-18.1-7.1-57.6-6.8-83.1-6.5c-4.1 0-7.9 .1-11.2 .1c-3.3 0-7.2 0-11.4-.1c-25.5-.3-64.8-.7-82.9 6.5c-6.9 2.7-13.1 6.8-18.4 12s-9.3 11.5-12 18.4c-7.1 18.1-6.7 57.7-6.5 83.2c0 4.1 .1 7.9 .1 11.1s0 7-.1 11.1c-.2 25.5-.6 65.1 6.5 83.2c2.7 6.9 6.8 13.1 12 18.4s11.5 9.3 18.4 12c18.1 7.1 57.6 6.8 83.1 6.5c4.1 0 7.9-.1 11.2-.1c3.3 0 7.2 0 11.4 .1c25.5 .3 64.8 .7 82.9-6.5c6.9-2.7 13.1-6.8 18.4-12s9.3-11.5 12-18.4c7.2-18 6.8-57.4 6.5-83c0-4.2-.1-8.1-.1-11.4s0-7.1 .1-11.4c.3-25.5 .7-64.9-6.5-83l0 0c-2.7-6.9-6.8-13.1-12-18.4zm-67.1 44.5A82 82 0 1 1 178.4 324.2a82 82 0 1 1 91.1-136.4zm29.2-1.3c-3.1-2.1-5.6-5.1-7.1-8.6s-1.8-7.3-1.1-11.1s2.6-7.1 5.2-9.8s6.1-4.5 9.8-5.2s7.6-.4 11.1 1.1s6.5 3.9 8.6 7s3.2 6.8 3.2 10.6c0 2.5-.5 5-1.4 7.3s-2.4 4.4-4.1 6.2s-3.9 3.2-6.2 4.2s-4.8 1.5-7.3 1.5l0 0c-3.8 0-7.5-1.1-10.6-3.2zM448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM357 389c-18.7 18.7-41.4 24.6-67 25.9c-26.4 1.5-105.6 1.5-132 0c-25.6-1.3-48.3-7.2-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6 0-132c1.3-25.6 7.1-48.3 25.8-67s41.5-24.6 67-25.8c26.4-1.5 105.6-1.5 132 0c25.6 1.3 48.3 7.1 67 25.8s24.6 41.4 25.8 67c1.5 26.3 1.5 105.4 0 131.9c-1.3 25.6-7.1 48.3-25.8 67z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section End-->
+
+    <!-- ! TODO: section portofolio buat juga untuk achievment -->
+
+    <!-- Portofolio Start -->
+    <section id="portfolio" class="pt-20 pb-20 text-bg">
+      <div class="container">
+        <!-- ? caption -->
+        <div class="w-full px-4">
+          <div class="max-w-xl mx-auto mb-16 text-center">
+            <h4 class="mb-3 text-lg font-bold uppercase text-primary">Portfolio</h4>
+            <h2 class="mb-4 text-3xl text-white flont-bold sm:text-4xl md:text-5xl">Portfolio Highlights</h2>
+            <p class="font-medium text-secondary text-md md:text-lg">A collection of my latest projects, showcasing innovative and functional digital solutions.</div>
+        </div>
+
+        <div class="flex flex-wrap justify-center w-full px-4 xl:w-10/20 xl:mx-auto">
+          <!--? hadirsmart -->
+          <div class="p-4 mb-12 sm:w-1/2 md:w-1/3">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="assets/project/hadirsmart.png" alt="hadirsmart" class="max-w-[500px] w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-white">Hadirsmart</h3>
+            <p class="text-base font-medium text-secondary">
+              The Online Attendance Application is a modern solution for attendance management, featuring advanced capabilities such as face recognition and geolocation to ensure that attendance can only be recorded by verified individuals at designated locations.
+            </p>
+            <div class="flex items-center justify-between px-2 py-6 ">
+              <p class="text-xs text-secondary">Flutter, Laravel, Face recognition, Google maps</p>
+              <a href="https://github.com/yusmnn/hadirsmart" target="_blank" class="px-6 py-2 text-xs font-medium text-white rounded-lg bg-primary hover:opacity-80">Read more</a>
+            </div>
+          </div>
+
+          <!-- ? women center -->
+          <div class="p-4 mb-12 sm:w-1/2 md:w-1/3">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="assets/project/women_center.png" alt="women_center" class="max-w-[500px] w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-white">Women Center</h3>
+            <p class="text-base font-medium text-secondary">
+              A platform that provides a safe space for women to access information, resources, and services related to personal development, career, and well-being. With a user-friendly interface, this application helps women receive
+              support and inspiration in facing life\'s challenges.
+            </p>
+            <div class="flex items-center justify-between px-2 py-6 text-sm">
+              <p class="text-base text-secondary">Flutter, Provider, Dio, MVVM</p>
+              <a href="https://github.com/yusmnn/flutter_women_center/tree/main" target="_blank" class="px-6 py-2 text-xs font-medium text-white rounded-lg bg-primary hover:opacity-80">Read more</a>
+            </div>
+          </div>
+
+          <!-- ?inventory fajar -->
+          <div class="p-4 mb-12 sm:w-1/2 md:w-1/3">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="assets/project/inventory.png" alt="inventory" class="max-w-[500px] w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-white">Inventory</h3>
+            <p class="font-medium text-secondary">
+              A news media platform designed to deliver up-to-date information from various trusted sources. Kabar offers news on a wide range of topics, from business to technology, providing users with quick and easy access to the latest
+              information.
+            </p>
+            <div class="flex items-center justify-between px-2 py-6 ">
+              <p class="text-sm text-secondary">Flutter, Provider, HTTP, MVVM</p>
+              <a href="https://github.com/yusmnn/kabar" target="_blank" class="px-6 py-2 text-xs font-medium text-white rounded-lg bg-primary hover:opacity-80">Read more</a>
+            </div>
+          </div>
+
+          <!-- ? kabar -->
+          <div class="p-4 mb-12 sm:w-1/2 md:w-1/3">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="assets/project/kabar.png" alt="kabar" class="max-w-[500px] w-full md:w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-white">Kabar</h3>
+            <p class="text-base font-medium text-secondary">An item loan application designed to facilitate the loan process and efficient inventory management for Admins and Journalists at PT Fajar National Network (Fajar.co.id).</p>
+            <div class="flex items-center justify-between px-2 py-6 text-sm">
+              <p class="text-sm text-secondary">Flutter, Bloc, HTTP, Bloc Architecture</p>
+              <a href="https://github.com/yusmnn/kabar" target="_blank" class="px-6 py-2 text-xs font-medium text-white rounded-lg bg-primary hover:opacity-80">Read more</a>
+            </div>
+          </div>
+
+          <!-- ? asclepius -->
+          <div class="p-4 mb-12 sm:w-1/2 md:w-1/3">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="assets/project/asclepius.png" alt="asclepius" class="max-w-[500px] w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-white">Asclepius</h3>
+            <p class="text-base font-medium text-secondary">An application designed to detect skin diseases using AI</p>
+            <div class="flex items-center justify-between px-2 py-6 text-xs">
+              <p class="text-sm text-secondary">Kotlin, Tensorflow Lite, MVVM</p>
+              <a href="https://github.com/yusmnn/Asclepius" target="_blank" class="px-6 py-2 text-xs font-medium text-white rounded-lg bg-primary hover:opacity-80">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Portofolio End -->
+    
+    
+    <!-- Achievment Start -->
+    <section id="achievments" class="pt-20 pb-20">
+      <div class="container">
+        
+        <!-- ? caption -->
+        <div class="w-full px-4">
+          <div class="max-w-xl mx-auto mb-16 text-center">
+            <h4 class="mb-3 text-lg font-bold uppercase text-primary">Achievments</h4>
+            <h2 class="mb-4 text-3xl text-white flont-bold sm:text-4xl md:text-5xl">My Achievments</h2>
+            <p class="font-medium text-secondary text-md md:text-lg">From certifications to successful projects, here's what I've accomplished along the way.</p>
+          </div>
+        </div>
+
+      <div class="flex flex-wrap justify-center w-full px-4 xl:w-10/20 xl:mx-auto">
+
+        <div class="w-full px-4 sm:w-1/2 md:w-1/3">
+          <div class="mb-10 overflow-hidden shadow-lg bg-card rounded-xl">
+            <img src="assets/sertif/bangkit.jpg" alt="bangkit" class="w-full" />
+            <div class="px-4 py-4">
+              <h4>
+                <a href="https://grow.google/intl/id_id/bangkit/" target="_blank" class="block mb-3 font-semibold text-white truncate text-md hover:text-primary">Mobile Development (Android) Learning Path</a>
+              </h4>
+              <ul class="mb-4 text-sm list-disc list-inside text-secondary">
+                <li>Android Fundamental</li>
+                <li>Android MVVM Architecture</li>
+                <li>Testing</li>
+                <li>Networking</li>
+                <li>Backgrounf Process</li>
+                <li>Storage Data</li>
+                <li>Clean Architecture</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="w-full px-4 sm:w-1/2 md:w-1/3">
+          <div class="mb-10 overflow-hidden shadow-lg bg-card rounded-xl">
+            <img src="assets/sertif/alterra_flutter.jpg" alt="alterra_flutter" class="w-full" />
+            <div class="px-4 py-4">
+              <h4>
+                <a href="https://drive.google.com/file/d/1tR4GzJnFDI2Ly2X84YWMmeV4pxyecOe1/view" target="_blank" class="block mb-3 font-semibold text-white truncate text-md hover:text-primary">2023 Complete Front-End Engineer Career With Flutter</a>
+              </h4>
+              <ul class="mb-4 text-sm list-disc list-inside text-secondary">
+                <li>Dart programming</li>
+                <li>OOP and Project management</li>
+                <li>UI Manipulation</li>
+                <li>Architecture and Integration</li>
+                <li>Mini Project</li>
+                <li>Capstone Project</li>
+                <li>Professional Skills</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full px-4 sm:w-1/2 md:w-1/3">
+          <div class="mb-10 overflow-hidden shadow-lg bg-card rounded-xl">
+            <img src="assets/sertif/android_intermediate.jpg" alt="alterra_flutter" class="w-full" />
+            <div class="px-4 py-4">
+              <h4>
+                <a href="" target="_blank" class="block mb-3 font-semibold text-white truncate text-md hover:text-primary"></a>
+              </h4>
+              <ul class="mb-4 text-sm list-disc list-inside text-secondary">
+                <li>Advanced UI</li>
+                <li>Animation</li>
+                <li>Localization & Accessibility</li>
+                <li>Service</li>
+                <li>Media</li>
+                <li>Geo Location</li>
+                <li>Advanced Testing</li>
+                <li>Advanced Database</li>
+                <li>Firebase</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="w-full px-4 sm:w-1/2 md:w-1/3">
+          <div class="mb-10 overflow-hidden shadow-lg bg-card rounded-xl">
+            <img src="assets/sertif/ml_android.jpg" alt="alterra_flutter" class="w-full" />
+            <div class="px-4 py-4">
+              <h4>
+                <a href="" target="_blank" class="block mb-3 font-semibold text-white truncate text-md hover:text-primary"></a>
+              </h4>
+              <ul class="mb-4 text-sm list-disc list-inside text-secondary">
+                <li>ML Kit</li>
+                <li>Tensorflow Lite (LiteRT)</li>
+                <li>MediaPipe</li>
+                <li>Firebase ML</li>
+                <li>Generative AI</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+       
+
+        <div class="w-full px-4 sm:w-1/2 md:w-1/3">
+          <div class="mb-10 overflow-hidden shadow-lg bg-card rounded-xl">
+            <img src="assets/sertif/solid.jpg" alt="alterra_flutter" class="w-full" />
+            <div class="px-4 py-4">
+              <h4>
+                <a href="" target="_blank" class="block mb-3 font-semibold text-white truncate text-md hover:text-primary"></a>
+              </h4>
+              <ul class="mb-4 text-sm list-disc list-inside text-secondary">
+                <li>Object Oriented Programming (OOP)</li>
+                <li>Relationships OOP</li>
+                <li>Software Design Principle</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full px-4 sm:w-1/2 md:w-1/3">
+          <div class="mb-10 overflow-hidden shadow-lg bg-card rounded-xl">
+            <img src="assets/sertif/project_management.jpg" alt="alterra_flutter" class="w-full" />
+            <div class="px-4 py-4">
+              <h4>
+                <a href="" target="_blank" class="block mb-3 font-semibold text-white truncate text-md hover:text-primary">Career in Project Management</a>
+              </h4>
+              <ul class="mb-4 text-sm list-disc list-inside text-secondary">
+                <li>Managing Project</li>
+                <li>Microsoft Lists</li>
+                <li>Microsoft Planner</li>
+                <li>Microsoft Project</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    <!-- Achievment End -->
+    
+        <!-- ! TODO: ini nanti buat jadi section skill (cari iconnya di fontawesome atau sebagaimnya) -->
+    <!-- skills Start -->
+    <div id="skills" class="pt-20 pb-20 ">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 text-center">
+            <h4 class="mb-3 text-lg font-bold uppercase text-primary">My Skills</h4>
+            <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl">Tools and Technologies</h2>
+            <p class="font-medium text-secondary text-md md:text-lg">
+              A collection of programming languages, frameworks, and tools that I have utilized to build innovative and efficient solutions.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full px-4">
+          <div class="flex flex-wrap items-center justify-center">
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/Kotlin.png" alt="kotlin" />
+            </a>
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/Laravel.png" alt="laravel" />
+            </a>
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/Flutter.png" alt="Flutter" />
+            </a>
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/Node.js.png" alt="Node.js" />
+            </a>
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/Tailwindcss.png" alt="Tailwindcss" />
+            </a>
+            </a>
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/Python.png" alt="Python" />
+            </a>
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/Github.png" alt="Github" />
+            </a>
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/Figma.png" alt="Figma" />
+            </a>
+            
+            <a href="#skills" class="max-w-[120px] mx-4 my-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 lg:max-w-[180px] xl:mx-8">
+              <img src="assets/skills/HTML.png" alt="HTML" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- skills End -->
+
+
+    <!-- contact start -->
+    <section id="contact" class="pt-20 pb-20">
+      <div class="container">
+        <div class="w-full px-4">
+          <!-- ? caption -->
+          <div class="max-w-xl mx-auto mb-16 text-center">
+            <h4 class="mb-3 text-lg font-bold uppercase text-primary">Contact Me</h4>
+            <p class="font-medium text-secondary text-md md:text-lg">
+              Have a project in mind or just want to say hello? Feel free to reach out! I'm always open to collaboration and new opportunities.
+            </p>
+          </div>
+
+          <!-- Form -->
+          <form id="contact-form" action="#" method="POST">
+            <div class="w-full lg:w-2/4 lg:mx-auto">
+              <div class="w-full px-4 mb-8">
+                <label for="name" class="text-base font-bold text-primary">Name</label>
+                <input type="text" id="name" name="user_name" class="w-full px-4 py-2 mt-2 text-white border rounded-md border-slate-300 bg-card focus:border-primary focus:ring-primary focus:ring-1 focus:outline-none" placeholder="Your Name" required />
+              </div>
+        
+              <div class="w-full px-4 mb-8">
+                <label for="email" class="text-base font-bold text-primary">Email</label>
+                <input type="email" id="email" name="user_email" class="w-full px-4 py-2 mt-2 text-white border rounded-md bg-card border-slate-300 focus:border-primary focus:ring-primary focus:ring-1 focus:outline-none" placeholder="Your Email" required />
+              </div>
+        
+              <div class="w-full px-4 mb-8">
+                <label for="messages" class="text-base font-bold text-primary">Messages</label>
+                <textarea
+                  id="messages"
+                  name="user_message"
+                  class="w-full h-32 px-4 py-2 mt-2 text-left text-white border rounded-md border-slate-300 bg-card focus:border-primary focus:ring-primary focus:ring-1 focus:outline-none"
+                  placeholder="Your Messages"
+                  required
+                ></textarea>
+              </div>
+        
+              <div class="w-full px-4">
+                <button id="submit" type="submit" class="w-full p-4 px-8 py-3 text-sm font-semibold text-white transition duration-500 rounded-full cursor-pointer hover:shadow-lg bg-primary hover:opacity-80">Send</button>
+              </div>
+            </div>
+          </form>
+    
+          <!--? Toast Notifications -->
+          <div id="toast-container" class="fixed bottom-0 left-0 right-0 flex items-center justify-center p-4 space-x-4"></div>> 
+          
+        </div>
+      </div>
+    </section>    
+    <!-- contact end -->
+
+    <!-- Footer Start -->
+    <footer class="pt-12 pb-12 font-medium bg-dark">
+      <div class="container">
+        <div class="w-full pt-10 border-t border-slate-700">
+          <div class="flex items-center justify-center mb-8 text-white">
+            <!--? Gmail -->
+            <a href="mailto:yusmnn@gmail.com" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+              <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                />
+              </svg>
+              <title>Mail</title>
+            </a>
+
+            <!--? Github -->
+            <a href="https://github.com/yusmnn" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+              <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                />
+              </svg>
+            </a>
+
+            <!--? linkedin -->
+            <a href="https://linkedin.com/in/yusmnn/" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+              <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                />
+              </svg>
+            </a>
+
+            <!--? X -->
+            <a href="https://x.com/yusmnn" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+              <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"
+                />
+              </svg>
+            </a>
+
+            <!--? instagram-->
+            <a href="https://instagram.com/yusm.n" target="_blank" class="flex items-center justify-center mr-3 border rounded-full w-9 h-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white">
+              <svg class="fill-current" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M194.4 211.7a53.3 53.3 0 1 0 59.3 88.7 53.3 53.3 0 1 0 -59.3-88.7zm142.3-68.4c-5.2-5.2-11.5-9.3-18.4-12c-18.1-7.1-57.6-6.8-83.1-6.5c-4.1 0-7.9 .1-11.2 .1c-3.3 0-7.2 0-11.4-.1c-25.5-.3-64.8-.7-82.9 6.5c-6.9 2.7-13.1 6.8-18.4 12s-9.3 11.5-12 18.4c-7.1 18.1-6.7 57.7-6.5 83.2c0 4.1 .1 7.9 .1 11.1s0 7-.1 11.1c-.2 25.5-.6 65.1 6.5 83.2c2.7 6.9 6.8 13.1 12 18.4s11.5 9.3 18.4 12c18.1 7.1 57.6 6.8 83.1 6.5c4.1 0 7.9-.1 11.2-.1c3.3 0 7.2 0 11.4 .1c25.5 .3 64.8 .7 82.9-6.5c6.9-2.7 13.1-6.8 18.4-12s9.3-11.5 12-18.4c7.2-18 6.8-57.4 6.5-83c0-4.2-.1-8.1-.1-11.4s0-7.1 .1-11.4c.3-25.5 .7-64.9-6.5-83l0 0c-2.7-6.9-6.8-13.1-12-18.4zm-67.1 44.5A82 82 0 1 1 178.4 324.2a82 82 0 1 1 91.1-136.4zm29.2-1.3c-3.1-2.1-5.6-5.1-7.1-8.6s-1.8-7.3-1.1-11.1s2.6-7.1 5.2-9.8s6.1-4.5 9.8-5.2s7.6-.4 11.1 1.1s6.5 3.9 8.6 7s3.2 6.8 3.2 10.6c0 2.5-.5 5-1.4 7.3s-2.4 4.4-4.1 6.2s-3.9 3.2-6.2 4.2s-4.8 1.5-7.3 1.5l0 0c-3.8 0-7.5-1.1-10.6-3.2zM448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM357 389c-18.7 18.7-41.4 24.6-67 25.9c-26.4 1.5-105.6 1.5-132 0c-25.6-1.3-48.3-7.2-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6 0-132c1.3-25.6 7.1-48.3 25.8-67s41.5-24.6 67-25.8c26.4-1.5 105.6-1.5 132 0c25.6 1.3 48.3 7.1 67 25.8s24.6 41.4 25.8 67c1.5 26.3 1.5 105.4 0 131.9c-1.3 25.6-7.1 48.3-25.8 67z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <p class="text-xs font-medium text-center text-slate-500">
+          &lt;/&gt;&nbsp;2025&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Crafted with <span class="text-blue-500">💙</span> and <span class="text-blue-500">🍵</span> by <span class="text-teal-500">Yusman</span>
+        </p>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Back to top Start -->
+    <a href="#home" class="fixed z-[9999] bottom-8 right-8 lg:bottom-6 lg:right-6 flex items-center justify-center w-12 h-12 rounded-full bg-primary p-2 hover:animate-pulse" id="to-top">
+      <svg class="w-5 h-5 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+        />
+      </svg>
+    </a>
+
+    <!-- Back to top End -->
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  
+  <script type="text/javascript">
+    (function() {
+        emailjs.init({
+          publicKey: "OLX0UxjJDz7TFgJ11",
         });
-      });
-    </script>
+    })();
+  </script>
+  
+  <script src="src/js/script.js"></script>
+
+
   </body>
 </html>

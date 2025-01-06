@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html body {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+body{
+  /* overflow-x: hidden; */
+  font-family: 'Inter', sans-serif;
+}
+
+/*? Navbar  */
+
+.navbar-fixed {
+  @apply fixed z-[9999] bg-opacity-60 backdrop-blur-sm shadow-sm;
+}
+
+.hamburger-line{
+  @apply w-[30px] h-[3px] my-2 block bg-white rounded-full
+}
+
+.hamburger-active span:nth-child(1){
+  @apply  rotate-45;
+}
+
+.hamburger-active span:nth-child(2){
+  @apply scale-0;
+}
+
+.hamburger-active span:nth-child(3){
+  @apply -rotate-45;
+}
+
+#dark-toggle:checked ~ label div.toggle-circle {
+  @apply translate-x-3;
+}
+
+/*? Styling Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #14b8a6; 
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #D2D2CF;
+}
+
+
+
+ /*? Loading Screen */
+ #loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0E161F;
+  z-index: 9999;
+}
+
+/* Animasi Loader */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #0E161F;
+  border-top: 5px solid #14b8a6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sembunyikan konten utama saat loading */
+#main-content.hidden {
+  display: none;
+}
+
+
