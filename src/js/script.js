@@ -35,6 +35,24 @@ window.addEventListener('click', function (e) {
 });
 
 
+//typing effect
+const typingEffect = document.getElementById('typing-effect');
+
+const typewriter = new Typewriter(typingEffect, {
+  loop: true,
+  delay: 75,
+});
+
+typewriter
+  .typeString('Web & Mobile Developer')
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString('Based in Makassar, Indonesia.')
+  .pauseFor(1000)
+  .start();
+
+
+
 //* Form contact emailjs
 
 const form = document.getElementById('contact-form');
